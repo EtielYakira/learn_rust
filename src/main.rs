@@ -20,7 +20,7 @@ fn main() {
     println!("{}", my_funciton(33, "thrid_thid".to_string()));
     //println!("{}",tup);    
     my_funciton2();
-
+    my_loop();
 }
 
 
@@ -48,4 +48,19 @@ fn my_funciton2() {
      let number = if cond { 5 } else { 6 };
 
      println!("{}", number);
+}
+
+
+
+fn my_loop() {
+    loop {
+        print!("hi");
+        break;
+    }
+
+    let mut cnt = 0;
+    while cnt <= 10 {
+        println!("{0} is the number {1}", cnt , cnt + 1 );
+        cnt += 1;
+    }
 }
