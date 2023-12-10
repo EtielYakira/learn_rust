@@ -15,7 +15,9 @@ fn main() {
     let _wordy = tup.1;
 
     println!("{:?}",tup);    
-    println!("{}",word);    
+    println!("{}",word);
+    
+        
     //println!("{}",tup);    
 
 }
