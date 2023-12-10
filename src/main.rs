@@ -63,4 +63,17 @@ fn my_loop() {
         println!("{0} is the number {1}", cnt , cnt + 1 );
         cnt += 1;
     }
+
+    let arr = [1,2,3,4,5,6];
+    for item in arr {
+        
+        println!("{} number int arr", item);
+    }
+    println!("{:?}", &arr[1..5]);
+    let annotheraar = [2,3,4,5];
+    let mut copy_arr = [0; 4];
+    copy_arr.clone_from_slice(&arr[1..5]);
+    println!("{:?}", copy_arr);
+    print!(" {}", assert_eq!(copy_arr, annotheraar).);
+
 }
