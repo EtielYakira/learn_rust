@@ -17,8 +17,9 @@ fn main() {
     println!("{:?}",tup);    
     println!("{}",word);
 
-    println!("{}", my_funciton(33, "thrid_thid".to_string()))
+    println!("{}", my_funciton(33, "thrid_thid".to_string()));
     //println!("{}",tup);    
+    my_funciton2();
 
 }
 
@@ -27,4 +28,24 @@ fn main() {
 fn my_funciton(x: i32, name: String) -> i32{
     println!("this {}, with the name of {}", x, name);
     x
+}
+
+
+fn my_funciton2() {
+    let number = 5;
+     
+     if number > 10 {
+        println!("first")
+     }
+     else if number > 22 {
+         println!("sec")
+     }
+     else {
+         println!("last")
+     }
+
+     let cond = 1 == 1;
+     let number = if cond { 5 } else { 6 };
+
+     println!("{}", number);
 }
