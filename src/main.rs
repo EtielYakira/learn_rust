@@ -16,8 +16,15 @@ fn main() {
 
     println!("{:?}",tup);    
     println!("{}",word);
-    
-        
+
+    println!("{}", my_funciton(33, "thrid_thid".to_string()))
     //println!("{}",tup);    
 
+}
+
+
+
+fn my_funciton(x: i32, name: String) -> i32{
+    println!("this {}, with the name of {}", x, name);
+    x
 }
