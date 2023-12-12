@@ -56,24 +56,30 @@ fn my_loop() {
     loop {
         print!("hi");
         break;
-    }
+    };
 
     let mut cnt = 0;
     while cnt <= 10 {
         println!("{0} is the number {1}", cnt , cnt + 1 );
         cnt += 1;
-    }
+    };
 
     let arr = [1,2,3,4,5,6];
     for item in arr {
         
         println!("{} number int arr", item);
-    }
+    };
     println!("{:?}", &arr[1..5]);
     let annotheraar = [2,3,4,5];
     let mut copy_arr = [0; 4];
     copy_arr.clone_from_slice(&arr[1..5]);
     println!("{:?}", copy_arr);
-    print!(" {}", assert_eq!(copy_arr, annotheraar).);
+    //assert_eq!(copy_arr.len() +1, annotheraar.len(), " test of {} and {} " ,copy_arr.len(), annotheraar.len());
+    // print!(" {}", assert_eq!(copy_arr.len(), annotheraar.len()));
+    
+
+    for numt in 1..3{
+        println!("{}", numt);
+    };
 
 }
