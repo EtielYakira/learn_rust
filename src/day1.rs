@@ -22,6 +22,19 @@ pub fn day1(){
 
 
 fn get_large_measurements(measurements: Vec<i32>) -> i32 {
-    // measurements.
-    return 0;
+    return measurements
+    .iter()
+    .enumerate()
+    .fold(0, |acc, (i, x )| {
+        println!("{i}");
+        println!("{} the innum", measurements[i]);
+        println!("{acc} this is aac");
+        //println!("{} the innum-1", measurements[i-1]);
+        if i > 0 {
+            if measurements[i] > measurements[i-1]{
+                return acc + 1;
+            }
+        }
+        return acc;
+    });
 }
