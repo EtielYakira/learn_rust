@@ -25,7 +25,7 @@ fn get_large_measurements(measurements: Vec<i32>) -> i32 {
     return measurements
     .iter()
     .enumerate()
-    .fold(0, |acc, (i, x )| {
+    .fold(0, |acc, (i, _x )| {
         println!("{i}");
         println!("{} the innum", measurements[i]);
         println!("{acc} this is aac");
