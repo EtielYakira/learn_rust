@@ -3,7 +3,7 @@ use std::fs;
 use std::path::Path;
 
 
-pub fn day1(){
+pub fn _day1(){
     let file_path = Path::new("./DATA/day1.txt");
     let content = fs::read_to_string(file_path)
         .expect("need to read file");
@@ -13,7 +13,7 @@ pub fn day1(){
         .flat_map(|x| x.parse().ok())
         .collect();
     
-    let ans = get_large_measurements_part_two(list_of_numbers_str);
+    let ans = _get_large_measurements_part_two(list_of_numbers_str);
 
 
     println!("{ans}");
@@ -40,7 +40,7 @@ fn _get_large_measurements(measurements: Vec<i32>) -> i32 {
 }
 
 
-fn get_large_measurements_part_two(measurements: Vec<i32>) -> i32 {
+fn _get_large_measurements_part_two(measurements: Vec<i32>) -> i32 {
     return measurements
     .iter()
     .enumerate()
