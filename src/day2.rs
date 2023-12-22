@@ -3,7 +3,7 @@ use std::path::Path;
 use std::collections::HashMap;
 
 
-pub fn day2(){
+pub fn _day2(){
     let file_path = Path::new("./DATA/day2.txt");
     let content = fs::read_to_string(file_path)
         .expect("need to read file");
@@ -31,13 +31,13 @@ pub fn day2(){
 
     }
     
-    let ans = day2_task1(actions);
-    let ans2 = day2_task2(lines);
+    let ans = _day2_task1(actions);
+    let ans2 = _day2_task2(lines);
     println!("{ans}");
     println!("{ans2}");
 }
 
-fn day2_task1(actions: HashMap<&str, Vec<i32>>) -> i32
+fn _day2_task1(actions: HashMap<&str, Vec<i32>>) -> i32
 {
     let mut depth  = 0;
     let mut horizontal = 0;
@@ -54,7 +54,7 @@ fn day2_task1(actions: HashMap<&str, Vec<i32>>) -> i32
     return depth * horizontal;
 }
 
-fn day2_task2(lines: Vec<(&str, i32)>) -> i32 {
+fn _day2_task2(lines: Vec<(&str, i32)>) -> i32 {
     let mut horizontal = 0;
     let mut depth  = 0;
     let mut aim  = 0;
