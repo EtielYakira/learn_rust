@@ -17,7 +17,16 @@ pub fn day3() {
     let epsilon  = day3_part1(data.clone(), "grather");
     let gamma  = day3_part1(data.clone(), "less");
 
-    println!("Gamma is: {} Epsilon is: {} \n The Answer is: {}", gamma, epsilon, gamma * epsilon)
+
+
+    println!("Gamma is: {} Epsilon is: {} \n The Answer is: {}", gamma, epsilon, gamma * epsilon);
+
+
+    let o2 = day3_part2(data.clone(), "most_common", 0);
+    //let co2 = day3_part2(data.clone(), "less_common", 0);
+
+    //println!("o2 is: {} co2 is: {} \n The Answer is: {}", o2, co2, o2 * co2);
+
 
 }
 
@@ -63,4 +72,164 @@ fn day3_part1(data: Vec<&str>, calc:&str ) -> i32{
         Err(_) => 0
     }
 }
+
+/*
+task : ans = o2 * co2
+find commen(o2)/uncomment(co2) in the curr bit pos
+if equel keep values with 1(o2)/0(co2)
+filter out all bits that not have
+
+if leaft with 1 save him
+
+*/
+
+
+
+fn day3_part2(data: &mut Vec<&str>, calc: &str, pos: usize ) -> i32 {
+
+
+
+
+    while data.len() > 1 || data.len() == 0 {
+        println!("data len is {}, calc {}, pos {}", data.len(), calc, pos);
+
+        let bit_size: usize = if let Some(f_str) = data.first() { f_str.len() } else { 0 };  
+        let mut sum_of_num = vec![0; bit_size];
+        let data_len_half = data.len() as i32 / 2;
+    
+        for bit in  data {
+            for (inx, dig) in bit.chars().enumerate() {
+                if dig == '1'  {
+                    sum_of_num[inx] += 1
+                };
+            }
+        }
+
+
+        pos += 1;
+    }
+    1
+}
+
+
+// fn day3_part2<'a>(data: Vec<&'a str>, calc: &str, pos: usize ) -> &'a i32 {
+
+//     //let bit_size: usize = if let Some(f_str) = data.first() { f_str.len() } else { 0 };  
+
+//     println!("data len is {}", data.len());
+//     if data.len() == 0 {
+//         return &0;
+//     }
+
+//     if data.len() == 1 {
+//         match i32::from_str_radix(&data[0], 2) {
+//             Ok(num) => Box::leak(Box::new(num)),
+//             Err(_) => &0
+//         };
+//     };
+
+//     let mut sum_of_1 = 0;
+//     let mut sum_of_0 = 0;
+
+//     let hlf_data_len = data.len() as i32 / 2;
+
+//     println!("pos : {}", pos);
+//     for bit in &data {
+//         let relevant_pos_char =  bit.chars().nth(pos).unwrap();
+//         if relevant_pos_char == '1'  {
+//             sum_of_1 += 1
+//         } else if relevant_pos_char == '0' {
+//             sum_of_0 += 1
+//         };
+//     }
+
+//     let mut filter_data: Vec<&'a str> = Vec::new(); 
+     
+     
+
+//     for bit in data {
+
+//         println!("cacl is {} and bit is {} ", calc, , bit);
+//         println!("{}", bit.chars().nth(pos).unwrap());
+        
+//         let mut relevant_bit = ""; 
+
+//         match calc {
+//             "most_common" =>   { 
+//                 if sum_of_0 > sum_of_1 {
+                    
+//                 }
+//                 println!("cacl is {} push bit::{}", calc, bit);
+//                 filter_data.push(bit);
+ 
+//             } ,
+//             "less" => if !is_curr_bigger_than_half { 
+//                 println!("cacl is {} push bit:::::::{}", calc, bit);
+//                 filter_data.push(bit);
+
+//             }  ,
+//             _ => println!("{} not valid calc", calc)
+//            }
+//     }
+//     //filter_data.push("aaa");
+//     println!("filter data len {}", filter_data.len());
+
+//     return day3_part2(filter_data, calc, pos+1);
+// }
+
+// fn day3_part2(data: Vec<&str>, calc: &str, pos: usize) -> i32 {
+//     println!("data len is {}", data.len());
+
+//     if data.is_empty() {
+//         return 0;
+//     }
+
+//     if data.len() == 1 {
+//         return match i32::from_str_radix(data[0], 2) {
+//             Ok(num) => num,
+//             Err(_) => 0,
+//         };
+//     }
+
+//     let mut sum_of_pos = 0;
+//     let hlf_data_len = data.len() as i32 / 2;
+
+//     println!("pos : {}", pos);
+
+//     for bit in &data {
+//         let relevant_pos_char = bit.chars().nth(pos).unwrap();
+//         if relevant_pos_char == '1' {
+//             sum_of_pos += 1;
+//         }
+//     }
+
+//     let mut filter_data: Vec<&str> = Vec::new();
+
+//     for bit in data {
+//         let is_curr_bigger_than_half = sum_of_pos >= hlf_data_len as i32;
+
+//         println!("cacl is {} and is_curr_bigger_than_half is {} ", calc, is_curr_bigger_than_half);
+
+//         match calc {
+//             "greater" => {
+//                 if is_curr_bigger_than_half {
+//                     println!("cacl is {} push bit::{}", calc, bit);
+
+//                     filter_data.push(bit);
+//                 }
+//             }
+//             "less" => {
+//                 if !is_curr_bigger_than_half {
+//                     println!("cacl is {} push bit::{}", calc, bit);
+
+//                     filter_data.push(bit);
+//                 }
+//             }
+//             _ => println!("{} not valid calc", calc),
+//         }
+//     }
+
+//     // Assuming you want to return the result of the recursive call
+//     day3_part2(filter_data, &calc, pos + 1)
+// }
 
