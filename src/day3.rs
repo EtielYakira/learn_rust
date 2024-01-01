@@ -85,30 +85,51 @@ if leaft with 1 save him
 
 
 
-fn day3_part2(data: &mut Vec<&str>, calc: &str, pos: usize ) -> i32 {
+fn day3_part2(data: Vec<&str>, calc: &str, pos: usize ) -> i32 {
 
 
+    let mut cntt  = 0;
+    let mut data_len = data.len();
+    let bit_size: usize = if let Some(f_str) = data.first() { f_str.len() } else { 0 };  
+    let mut sum_of_num = vec![0; bit_size];
+    let data_len_half = data_len as i32 / 2;
 
-
-    while data.len() > 1 || data.len() == 0 {
-        println!("data len is {}, calc {}, pos {}", data.len(), calc, pos);
-
-        let bit_size: usize = if let Some(f_str) = data.first() { f_str.len() } else { 0 };  
-        let mut sum_of_num = vec![0; bit_size];
-        let data_len_half = data.len() as i32 / 2;
+    for bit in  data {
+        for (inx, dig) in bit.chars().enumerate() {
+            if dig == '1'  {
+                sum_of_num[inx] += 1
+            };
+        }
+    }
     
-        for bit in  data {
-            for (inx, dig) in bit.chars().enumerate() {
+
+
+    while data_len > 1 || data_len == 0 {
+        println!("data len is {}, calc {}, pos {}", &data_len, calc, pos);
+        let filter_data: Vec<u32> = Vec::with_capacity(data_len);
+        get_filter_letter()
+
+
+        cntt += 1;
+    }
+    
+    1
+}
+
+fn get_filter_letter(data: Vec<&str>, bit_size: usize, i_to_check: i32) -> &str {
+    let mut sum_of_num = 0;
+
+    for bit in  data {
+        for (inx, dig) in bit.chars().enumerate() {
+            if inx == i_to_check as usize {
                 if dig == '1'  {
-                    sum_of_num[inx] += 1
+                    sum_of_num += 1
                 };
             }
         }
-
-
-        pos += 1;
     }
-    1
+
+    return "s";
 }
 
 
