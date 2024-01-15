@@ -1,9 +1,8 @@
-use core::num;
 use std::{path::Path, fs};
 
 
 
-pub fn day3() {
+pub fn _day3() {
     let file_path = Path::new("./DATA/day3.txt");
     let content = fs::read_to_string(file_path)
         .expect("need to read file");
@@ -15,16 +14,16 @@ pub fn day3() {
     
 
 
-    let epsilon  = day3_part1(data.clone(), "grather");
-    let gamma  = day3_part1(data.clone(), "less");
+    let epsilon  =_day3_part1(data.clone(), "grather");
+    let gamma  = _day3_part1(data.clone(), "less");
 
 
 
     println!("Gamma is: {} Epsilon is: {} \n The Answer is: {}", gamma, epsilon, gamma * epsilon);
 
 
-    let o2 = day3_part2(data.clone(), "most_common");
-    let co2 = day3_part2(data.clone(), "less_common");
+    let o2 = _day3_part2(data.clone(), "most_common");
+    let co2 = _day3_part2(data.clone(), "less_common");
 
     println!("o2 is: {} co2 is: {} \n The Answer is: {}", o2, co2, o2 * co2);
 
@@ -38,7 +37,7 @@ pub fn day3() {
 // if grether then hald sszie of lines 1 ekse 0
 //  build the bit
 
-fn day3_part1(data: Vec<&str>, calc:&str ) -> i32{
+fn _day3_part1(data: Vec<&str>, calc:&str ) -> i32{
 
     let bit_size: usize = if let Some(f_str) = data.first() { f_str.len() } else { 0 };  
 
@@ -85,7 +84,7 @@ if leaft with 1 save him
 */
 
 
-fn day3_part2(data: Vec<&str>, calc: &str) -> i32 {
+fn _day3_part2(data: Vec<&str>, calc: &str) -> i32 {
     let bit_size: usize = if let Some(f_str) = data.first() { f_str.len() } else { 0 };  
     println!("{:?}", data);
 
